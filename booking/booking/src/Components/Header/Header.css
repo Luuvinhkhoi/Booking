@@ -1,0 +1,108 @@
+:root{ 
+  --PrimaryColor: hsl(199, 77%, 52%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right,
+  hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190); 
+  --inputColor: rgb(239, 239, 239); 
+  --bodyColor: rgb(240, 240, 246); 
+  --cardBG: rgb(225, 225, 235); 
+ }
+.Header{
+  position: fixed;
+  display: flex;
+  background: white;
+  border-bottom: solid silver;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: var(--PrimaryColor);
+  z-index: 2;
+  box-sizing: border-box;
+}
+.brand{
+  display: flex;
+  align-items: center;
+}
+h1{
+  font-size: 1.5rem;
+}
+.navBar{
+ width: 50%;
+ display: flex;
+ align-items: center;
+ 
+}
+.navList{
+  display: flex;
+  display: flex; 
+  justify-content: space-around;
+  padding: 0 10px;
+  width: 100%;
+}
+li{
+  text-decoration: none;
+}
+.navList li:hover{
+  color: var(--PrimaryColor);
+}
+.close{
+  position: relative;
+  top: 100rem
+}
+.close:hover{
+  color: var(--SecondaryColor);
+}
+.toggle{
+  display: none;
+}
+.toggle:hover{
+  color: var(--SecondaryColor);
+}
+@media screen and (max-width:768px){
+  .navBar{
+    position: absolute;
+    background: var(--whiteColorDeam);
+    height: max-content;
+    width: 80%;
+    border-radius: 1rem;
+    top: -66rem;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2;
+    box-shadow: 0 2px 4px black;
+    transition: .5s ease-in-out;
+  }
+  .activeNavBar{
+    top: 7rem;
+  }
+  .closeNavBar{
+    top: -77rem;
+  }
+  .navList{
+    margin: auto;
+    padding: 0.5rem 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  li{
+    padding: 0.5rem 0;
+    color: var(--textColor);
+  }
+  .close{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--PrimaryColor);
+  }
+  .toggle{
+    display: block
+  };
+}

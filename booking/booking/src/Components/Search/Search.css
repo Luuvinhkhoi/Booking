@@ -1,0 +1,111 @@
+:root{ 
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor: linear-gradient(to right,
+    hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(201, 33%, 16%);
+    --textColor: hsl(240, 4%, 36%);
+    --whiteColorDeam: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190); 
+    --inputColor: rgb(239, 239, 239); 
+    --bodyColor: rgb(240, 240, 246); 
+    --cardBG: rgb(225, 225, 235); 
+}
+.search{
+    display: flex;
+    position: relative;
+    top: 82.4px,
+}
+video{
+    position: absolute;
+    height: 100%;
+    width: 100%;    
+    object-fit: cover;
+}
+.content{
+    width: 100%;
+    height: max-content;
+    padding: 8rem 1.5rem 3rem;
+    display: flex;
+    row-gap: 3rem;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin: auto;
+    color: var(--whiteColor);
+    z-index: 1;
+}
+.search-bar{
+    background-color: var(--whiteColor);
+    border-radius: 5px;
+    padding: 1rem;
+}
+.select{
+    padding: 0.5rem ;
+}
+p{
+    color: var(--textColor);
+}
+.input-flex{
+    height: 40px;
+    border-radius: 3rem ;
+    background-color: var(--inputColor);
+    padding: 0 1rem;
+}
+input{
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    height: 100%;
+}
+.activeDaterange{
+    display: block;
+    position: absolute;
+}
+.closeDaterange{
+    display: none;
+}
+.date{
+    background-color: var(--inputColor);
+    height: 40px;
+    border-radius: 3rem;
+    display: block;
+    color: var(--textColor);
+    padding: 0 1rem
+}
+.date span{
+    transform: translate(0, 25%);
+    display: block;
+    height: 100%;
+}
+.select-flex{
+    display: flex;
+    justify-content: space-between;
+}
+.filter{
+    background: var(--gradientColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0,75%);
+    height: 40px;
+    padding: 0 1rem;
+    border-radius: 20px;
+}
+@media screen and (min-width:768px) {
+    .search-bar{
+        grid-template-columns: 1fr 1fr 1fr 0.5fr;
+        display: grid;
+    }
+}
+@media screen and (max-width:768px) {
+    .filter{
+        transform: translate(0,0);
+        margin: 0.5rem 0;
+    }
+    .select{
+        padding: 0.5rem 0 ;
+    }
+}

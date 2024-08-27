@@ -1,0 +1,100 @@
+:root{ 
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor: linear-gradient(to right,
+    hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(201, 33%, 16%);
+    --textColor: hsl(240, 4%, 36%);
+    --whiteColorDeam: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190); 
+    --inputColor: rgb(239, 239, 239); 
+    --bodyColor: rgb(240, 240, 246); 
+    --cardBG: rgb(225, 225, 235); 
+    --cardHover: rgb(255,255,255);
+}
+.Main{
+    padding:3rem 1rem;
+    
+}
+.single-destination{
+    margin:3rem 1rem;
+    border: solid var(--bodyColor) ;
+    border-radius: 10px;
+    background: var(--cardBG);
+    overflow: hidden;
+}
+.single-destination:hover{
+    background: var(--cardHover);
+    box-shadow: 1 4px 4px ;
+    transition: .3s ease;
+}
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 2s ease;
+    aspect-ratio: 4/3; 
+}
+img:hover{
+    transform: scale(1.1);
+}
+.detail{
+    padding:1rem
+}
+.location{
+    border-bottom:solid var(--blackColor) 1px ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.location-flex{
+    display: flex;
+    align-items: center;
+}
+.location span{
+    align-self: start;
+}
+.description{
+    padding: 1rem 0;
+    font-size: 13.5px;
+}
+.detailbtn{
+    border-radius: 20px ;
+    background: var(--gradientColor);
+    position: relative;
+    height: 40px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    color: var(--whiteColor);
+    font-size: 20px;
+    width: 20%;
+}
+.detailbtn button{
+    color: var(--whiteColor);
+}
+button{
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+}
+@media screen and (min-width: 768px) {
+    .destinations{
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+    }
+    .Main{
+        font-size: 12px;
+    }
+}
+@media screen and (min-width:1280px ) {
+    .destinations{
+        grid-template-columns: repeat(3, 1fr);
+        display: grid;
+    }
+    .Main{
+        font-size: 12px;
+    }
+}
