@@ -22,7 +22,8 @@ let Booking = {
       dest_id= jsonResponse[0].dest_id;
       console.log(jsonResponse)
       console.log(jsonResponse[0].dest_id)
-      return fetch(`${baseUrl}search?page_number=0&adults_number=${adults_number}&room_number=1&include_adjacency=true&units=metric&checkout_date=${checkout_date}&dest_id=${dest_id}&filter_by_currency=USD&dest_type=city&checkin_date=${checkin_date}&order_by=popularity&locale=en-gb`,{
+      return fetch(`${baseUrl}search?page_number=0&adults_number=${adults_number}&room_number=1&include_adjacency=true&units=metric&
+      checkout_date=${checkout_date}&dest_id=${dest_id}&filter_by_currency=USD&dest_type=city&checkin_date=${checkin_date}&order_by=popularity&locale=en-gb`,{
         method:'GET', 
         headers:{
           'x-rapidapi-key': `${APIkey}`,

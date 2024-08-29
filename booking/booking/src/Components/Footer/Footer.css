@@ -40,7 +40,7 @@
     gap: 0.5rem;
     font-size: 16px;
 }
-.introduction{
+.footer-content{
     background-color: var(--cardBG);
     color: var(--textColor);
     border-radius: 20px;

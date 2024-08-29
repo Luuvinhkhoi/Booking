@@ -15,7 +15,6 @@
 }
 .Main{
     padding:3rem 1rem;
-    
 }
 .single-destination{
     margin:3rem 1rem;
@@ -33,11 +32,7 @@ img{
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: 2s ease;
     aspect-ratio: 4/3; 
-}
-img:hover{
-    transform: scale(1.1);
 }
 .detail{
     padding:1rem
@@ -79,6 +74,16 @@ button{
     background: none;
     outline: none;
     border: none;
+}
+.popular{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 3rem;
+}
+.Slider{
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 1rem;
 }
 @media screen and (min-width: 768px) {
     .destinations{

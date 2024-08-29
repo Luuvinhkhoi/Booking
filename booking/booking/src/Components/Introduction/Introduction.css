@@ -1,0 +1,36 @@
+.introduction{
+    padding-top: 3rem;
+    width: 80%;
+    margin: 0 auto
+}
+.welcome{
+    display: flex;
+    justify-content: space-between;
+    height: 450px;
+    padding-bottom: 3rem;
+}
+.welcome-img{
+    width: 45%;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.welcome-content{
+    width: 45%;
+    align-self: center;
+}
+.introduction .slogan{
+  text-align: center;
+}
+.advan{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.advan-1{
+    margin: 1rem;
+    text-align: center;
+    background: rgb(225, 225, 235);
+    border-radius: 1rem;
+}
+.advan-1-content{
+    padding: 1rem;
+}

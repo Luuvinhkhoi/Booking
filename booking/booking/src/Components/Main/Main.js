@@ -7,6 +7,8 @@ import { CiLocationOn } from "react-icons/ci";
 import { TbChecklist } from "react-icons/tb";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import Carousel from "../Carousel/Carousel";
+import Introduction from "../Introduction/Introduction";
 function Main (){
     useEffect(()=>{
       Aos.init({duration: 2000})
@@ -14,11 +16,21 @@ function Main (){
     const results=useSelector(hotel)
     console.log (results)
     if (!results.result){
-      return <div></div>
+      return (
+        <div>
+          <div className="popular">
+            <h2>Most visited destination</h2>
+            <div className="Slider">
+              <Carousel></Carousel>
+            </div>
+          </div>
+          <Introduction></Introduction>
+        </div>
+      )
     }
     return (
       <div className="Main">
-        <span>Most visited destination</span>
+
         <div className="destinations">
           {results.result.map(item=>
             <div className="single-destination" key={item.hotel_id} data-aos='fade-up' >

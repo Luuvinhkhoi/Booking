@@ -11,7 +11,7 @@ function Footer(){
       }, [])
     return(
         <div className="footer">
-            <video src={`${process.env.PUBLIC_URL}/161045-822582085.mp4`} autoPlay muted loop></video>
+            
             <div className="content">
                 <div className="contact" data-aos='fade-up'>
                     <div className="text">
@@ -25,7 +25,7 @@ function Footer(){
                         <BsSend ></BsSend>
                     </button>
                 </div>
-                <div className="introduction" data-aos='fade-up'>
+                <div className="footer-content" data-aos='fade-up'>
                     <div className="brand">
                         <MdOutlineTravelExplore />
                         <h1>Booking</h1>

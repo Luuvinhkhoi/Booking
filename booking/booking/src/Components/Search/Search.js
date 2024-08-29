@@ -53,7 +53,7 @@ function Search(){
   return(
     <div className="search">
         <div className="video"></div>
-        <video src={`${process.env.PUBLIC_URL}/44549-439940039_medium.mp4`} autoPlay muted loop></video>
+        <img src='https://webdesignmastery.github.io/WDM-Co_07-07-23/assets/header.jpg' className="image"></img>
         <div className="content">
             <div className="text">
               <span data-aos='fade-up'>Our packages</span>

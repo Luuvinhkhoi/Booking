@@ -17,7 +17,7 @@ const data = [
     {
         id: 2,
         imgSrc: img2,
-        destTitle: 'Ho Chi Minh',
+        destTitle: 'Ha Giang',
         location: 'Viet Nam',
         fees: '$500',
         descrition: `Ho Chi Minh City, formerly known as Saigon, is the largest city in Vietnam and a bustling hub of commerce, culture, and history.
@@ -35,7 +35,7 @@ const data = [
     {
         id: 4,
         imgSrc: img4,
-        destTitle: 'Ha Giang',
+        destTitle: 'Da Lat',
         location: 'Viet Nam',
         fees: '$250',
         descrition: `Ha Giang is a remote province in northern Vietnam known for its stunning mountainous landscapes, ethnic diversity, and rich cultural heritage.
@@ -44,7 +44,7 @@ const data = [
     {
         id: 5,
         imgSrc: img5,
-        destTitle: 'Da Lat',
+        destTitle: 'Ho Chi Minh',
         location: 'Viet Nam',
         fees: '$300',
         descrition: `Da Lat, often referred to as the 'City of Eternal Spring,' is a charming city located in the Central Highlands of Vietnam. 

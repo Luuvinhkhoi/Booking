@@ -1,0 +1,16 @@
+.slick-slide>div{
+    margin: 0 10px;
+}
+.slider-item {
+    text-align: center;
+}
+.slick-dots{
+   bottom: 0;
+   position: relative;
+}
+.slick-next::before{
+    color: black;
+}
+.slick-prev::before{
+    color: black;
+}
