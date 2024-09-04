@@ -11,7 +11,7 @@ function Footer(){
       }, [])
     return(
         <div className="footer">
-            
+            <img src='https://buiquyet.com/wp-content/uploads/2019/09/Sapa-th%C3%A1ng-10.jpg'></img>
             <div className="content">
                 <div className="contact" data-aos='fade-up'>
                     <div className="text">

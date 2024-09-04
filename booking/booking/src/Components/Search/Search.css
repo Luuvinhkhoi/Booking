@@ -52,6 +52,7 @@ p{
     border-radius: 3rem ;
     background-color: var(--inputColor);
     padding: 0 1rem;
+    position: relative;
 }
 input{
     width: 100%;
@@ -63,6 +64,8 @@ input{
 .activeDaterange{
     display: block;
     position: absolute;
+    top: 6rem;
+    box-shadow:  -10px -5px 5px rgba(26, 26, 26, 0.24);
 }
 .closeDaterange{
     display: none;
@@ -84,6 +87,7 @@ input{
     display: flex;
     justify-content: space-between;
 }
+
 .filter{
     background: var(--gradientColor);
     display: flex;
@@ -94,6 +98,35 @@ input{
     padding: 0 1rem;
     border-radius: 20px;
 }
+.activeselect-guest{
+    display: block;
+    position: absolute;
+    background: var(--whiteColor);
+    border-radius: 5px;
+    color: var(--blackColor);
+    box-shadow:  -10px -5px 5px rgba(26, 26, 26, 0.24);
+}
+.closeselect-guest{
+    display: none;
+}
+.select-guest-flex{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+.select-guest-flex button{
+    background-color: var(--cardBG);
+    width: 10%;
+    border-radius: 1rem;
+}
+.child{
+    width: 160px;
+}
+.guest-number{
+    padding: 0 1rem;
+    width: 12px;
+}
+
 @media screen and (min-width:768px) {
     .search-bar{
         grid-template-columns: 1fr 1fr 1fr 0.5fr;

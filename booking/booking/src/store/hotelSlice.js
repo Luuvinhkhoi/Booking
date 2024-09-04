@@ -25,9 +25,9 @@ const hotelSlice = createSlice({
 })
 export const searchDestination = createAsyncThunk (
     'destination/searchDes',
-    async ({arg1, arg2, arg3, arg4}, thunkAPI) =>{
+    async ({arg1, arg2, arg3, arg4, arg5}, thunkAPI) =>{
         console.log(arg1)
-        const response = await Booking.search(arg1, arg2, arg3, arg4)
+        const response = await Booking.search(arg1, arg2, arg3, arg4, arg5)
         thunkAPI.dispatch(updateHotelsList(response))
     }
 )   

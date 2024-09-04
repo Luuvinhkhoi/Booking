@@ -13,8 +13,11 @@
     --cardBG: rgb(225, 225, 235); 
 }
 .footer{
-    display: flex;
     position: relative;
+    display: flex;
+}
+.footer img{
+    position: absolute;
 }
 .contact{
     display: flex;

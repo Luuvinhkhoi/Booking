@@ -18,7 +18,7 @@ function Introduction(){
                 </div>
             </div>
             <div className="slogan">
-                <h2>Explore the world with ease – book in just a few clicks!</h2>
+                <h2>Explore VietNam with ease – book in just a few clicks!</h2>
             </div>
             <div className="advan">
                 <div className="advan-1">

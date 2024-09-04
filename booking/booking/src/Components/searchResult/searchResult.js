@@ -1,10 +1,13 @@
 import React from "react" 
-export const SearchResult = () =>{
+import { CiLocationOn } from "react-icons/ci";
+import { TbChecklist } from "react-icons/tb";
+import './searchResult.css'
+export const SearchResult = ({results}) =>{
   return (
     <div className="destinations">
           {results.result.map(item=>
             <div className="single-destination" key={item.hotel_id} data-aos='fade-up' >
-              <div className="image">
+              <div>
                 <img src={item.max_photo_url}></img>
               </div>
               <div className="detail">
@@ -20,12 +23,13 @@ export const SearchResult = () =>{
                 </div>
                 <div className="description">
                   <span>{item.descrition}</span>
-                  <div>
-                    <span>{item.composite_price_breakdown.net_amount.amount_rounded
-                    }</span>
+                  <div className="price">
+                    <span>{`Starting from ${item.composite_price_breakdown.net_amount.amount_rounded
+                    }`}</span>
                   </div>
-                  <div>
-                    <span>{item.review_score}</span>
+                  <div className="rating">
+                    <span className="review_score">{item.review_score}</span>
+                    <span>{item.review_score_word}</span>
                   </div>
                 </div>
                 <div className="detailbtn">

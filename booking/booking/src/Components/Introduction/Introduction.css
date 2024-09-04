@@ -24,6 +24,7 @@
 .advan{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 2rem;
 }
 .advan-1{
     margin: 1rem;

@@ -17,7 +17,8 @@ function Search(){
   const checkinstate=useSelector(checkin)
   const checkoutstate=useSelector(checkout)
   const destinationstate=useSelector(destination)
-  const [isActive, setIsActive]=useState('closeDaterange')
+  const [isActiveDate, setIsActiveDate]=useState('close')
+  const [isActiveGuest, setIsActiveGuest]= useState('close')
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -25,15 +26,33 @@ function Search(){
       key: 'selection'
     }
   ]);
-  const [guest, setGuest]=useState(1)
+  const [adult, setAdult]=useState(1)
+  const [room, setRoom]=useState(1)
+  const [children, setChildren]=useState(0)
   const dispatch = useDispatch()
   console.log(format(state[0].startDate, 'yyyy-MM-dd'))
-  function handleClick (){
-    if (isActive==='closeDaterange'){
-      setIsActive('activeDaterange')
-    } else{
-      setIsActive('closeDaterange')
-    }
+  let total=adult+children
+  function handleGuestClick (){
+    console.log(isActiveGuest)
+    if (isActiveGuest==='close' && isActiveDate==='close'){
+      setIsActiveGuest('active')
+    } else if (isActiveGuest==='active' && isActiveDate==='close'){
+      setIsActiveGuest('close')
+    } else if (isActiveGuest==='close' && isActiveDate==='active'){
+      setIsActiveGuest('active')
+      setIsActiveDate('close')
+    } 
+  }
+  function handleDateClick (){
+    console.log(isActiveDate)
+    if (isActiveGuest==='close' && isActiveDate==='close'){
+      setIsActiveDate('active')
+    } else if (isActiveGuest==='close' && isActiveDate==='active'){
+      setIsActiveDate('close')
+    } else if (isActiveGuest==='active' && isActiveDate==='close'){
+      setIsActiveGuest('close')
+      setIsActiveDate('active')
+    } 
   }
   function handleInOutClick(){
     dispatch(updateIn(format(state[0].startDate, 'yyyy-MM-dd')))
@@ -45,10 +64,13 @@ function Search(){
   }
   function search(){
     console.log(destinationstate)
-    dispatch(searchDestination({arg1: destinationstate,arg2: guest ,arg3: checkinstate,arg4: checkoutstate}))
+    dispatch(searchDestination({arg1: destinationstate,arg2: adult, arg3: room ,arg4: checkinstate,arg5: checkoutstate}))
   }
-  function handleGuest(e){
-    setGuest(e.target.value)
+  function onAdd(setState){
+    setState(prevState=>prevState+1)
+  }
+  function onRemove(setState){
+    setState(prevState=>prevState-1)
   }
   return(
     <div className="search">
@@ -68,10 +90,10 @@ function Search(){
                 </div>
                 <div className="select">
                   <p>Select date</p>
-                  <div onClick={handleClick} className="date">
+                  <div className="date" onClick={handleDateClick} >
                     <span>{`${format(state[0].startDate, 'dd/MM')} to ${format(state[0].endDate, 'dd/MM')}`}</span>
                   </div>
-                  <div className={isActive}>
+                  <div className={`${isActiveDate}Daterange`}>
                   <DateRange
                     editableDateInputs={true}
                     onChange={item => setState([item.selection])}
@@ -85,8 +107,28 @@ function Search(){
                   <div className="select-flex">
                     <p>Number of guest</p>
                   </div>
-                  <div className="input-flex" onChange={handleGuest}>
-                    <input placeholder="Number of guest"></input>
+                  <div className="input-flex" onClick={handleGuestClick}>
+                    <input placeholder={`${adult} adult - ${children} children - ${room} room`}></input>
+                  </div>
+                  <div className={`${isActiveGuest}select-guest`}>
+                      <div className="select-guest-flex">
+                        <span className="child">Adults</span>
+                        <button onClick={()=>onRemove(setAdult)} disabled={adult<=1}>-</button>
+                        <span className="guest-number">{adult}</span>
+                        <button onClick={()=>onAdd(setAdult)}>+</button>
+                      </div>
+                      <div className="select-guest-flex">
+                        <span className="child">Rooms</span>
+                        <button onClick={()=>onRemove(setRoom)} disabled={room<=1}>-</button>
+                        <span className="guest-number">{room}</span>
+                        <button onClick={()=>onAdd(setRoom)}>+</button>
+                      </div>
+                      <div className="select-guest-flex">
+                        <span className="child">Childrens</span>
+                        <button onClick={()=>onRemove(setChildren)} disabled={children<=1}>-</button>
+                        <span className="guest-number">{children}</span>
+                        <button onClick={()=>onAdd(setChildren)}>+</button>
+                      </div>
                   </div>
                 </div>
                 <div className='filter' onClick={search}>
