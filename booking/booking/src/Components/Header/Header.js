@@ -18,7 +18,7 @@ function Header(){
             </div>
             <div className={isActive}>
                 <ul className="navList">
-                    <li><a>Home</a></li>
+                    <li><a href='/home'>Home</a></li>
                     <li><a>About</a></li>
                     <li><a>News</a></li>
                     <li><a>Contact</a></li>

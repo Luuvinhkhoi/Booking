@@ -10,10 +10,12 @@ import { addDays } from 'date-fns';
 import { format } from "date-fns";
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
+import { createSearchParams, useNavigate } from "react-router-dom";
 function Search(){
   useEffect(()=>{
     Aos.init({duration:2000})
   }, [])
+  const navigate=useNavigate()
   const checkinstate=useSelector(checkin)
   const checkoutstate=useSelector(checkout)
   const destinationstate=useSelector(destination)
@@ -64,6 +66,19 @@ function Search(){
   }
   function search(){
     console.log(destinationstate)
+    const searchQuery= {
+      destination: destinationstate,
+      adult: adult,
+      room: room,
+      children: children,
+      checkin: checkinstate,
+      checkout: checkoutstate,
+    }
+    const query=createSearchParams(searchQuery)
+    navigate({
+      pathname:'/search',
+      search:`?${query}`
+    })
     dispatch(searchDestination({arg1: destinationstate,arg2: adult, arg3: room ,arg4: checkinstate,arg5: checkoutstate}))
   }
   function onAdd(setState){

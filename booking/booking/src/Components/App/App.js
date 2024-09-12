@@ -1,18 +1,22 @@
 import React, {useState} from 'react';
+import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from 'react-router-dom'
 import './App.css';
-import Header from '../Header/Header';
-import Search from '../Search/Search';
 import Main from '../Main/Main'
-import Footer from '../Footer/footer';
+import { Detail } from '../Detail/Detail';
+import { Root } from '../Root/Root';
+import { SearchResult } from '../searchResult/searchResult';
 function App() {
   const [state, setState] = useState()
+  const router=createBrowserRouter(createRoutesFromElements(
+    <Route path='/' element={<Root></Root>}>
+      <Route index element={<Main></Main>}></Route>
+      <Route path='/home' element={<Main></Main>}></Route>
+      <Route path='/search' element={<SearchResult></SearchResult>}></Route>
+      <Route path='/:id' element={<Detail></Detail>}></Route>
+    </Route>
+  ))
   return (
-    <div className="App">
-      <Header/>
-      <Search/>
-      <Main></Main>
-      <Footer></Footer>
-    </div>
+    <RouterProvider router={router}></RouterProvider>
   );
 }
 

@@ -41,6 +41,26 @@ let Booking = {
         return jsonResponse
       })
     })
+  },
+  async getDetails(id, checkin_date, checkout_date){
+    return await fetch(`https://booking-com15.p.rapidapi.com/api/v1/hotels/getHotelDetails?hotel_id=${id}&arrival_date=${checkin_date}&departure_date=${checkout_date}&languagecode=en-us&currency_code=VND`,{
+      method:'GET', 
+      headers:{
+          'x-rapidapi-key': `${APIkey}`,
+          'x-rapidapi-host': 'booking-com15.p.rapidapi.com'
+      }
+    }).then(response=>{
+      if (response.ok){
+        console.log('hi')
+        return response.json()
+      }
+    }).then(jsonResponse=>{
+      if(!jsonResponse){
+        console.error('Reponse error')
+      }
+      console.log(jsonResponse)
+      return jsonResponse
+    })
   }
 }
 export default Booking
