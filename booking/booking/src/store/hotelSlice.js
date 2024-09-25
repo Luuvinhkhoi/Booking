@@ -48,4 +48,5 @@ export const checkin=(state)=>state.hotel.checkin
 export const checkout=(state)=>state.hotel.checkout
 export const destination=(state)=>state.hotel.destination
 export const hotel=(state)=>state.hotel.hotels
+export const detail=(state)=>state.hotel.detail
 export default hotelSlice.reducer

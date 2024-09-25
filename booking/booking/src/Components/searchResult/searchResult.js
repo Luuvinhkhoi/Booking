@@ -1,4 +1,4 @@
-import React, { useState } from "react" 
+import React, { useState } from "react" ;
 import { CiLocationOn } from "react-icons/ci";
 import { TbChecklist } from "react-icons/tb";
 import './searchResult.css'
@@ -39,7 +39,7 @@ export const SearchResult = () =>{
                     <div className="detail">
                       <div className="location">
                         <div className="location-info">
-                          <h2>{item.hotel_name}</h2>
+                          <h2> {item.hotel_name.length > 20 ? item.hotel_name.substring(0, 30) + '...' : item.hotel_name}</h2>
                           <div className="location-flex">
                             <CiLocationOn></CiLocationOn>
                             <span>{item.default_wishlist_name
@@ -48,14 +48,12 @@ export const SearchResult = () =>{
                         </div>
                       </div>
                       <div className="description">
-                        <span>{item.descrition}</span>
-                        <div className="price">
-                          <span>{`Starting from ${item.composite_price_breakdown.net_amount.amount_rounded
-                          }`}</span>
-                        </div>
                         <div className="rating">
                           <span className="review_score">{item.review_score}</span>
-                          <span>{item.review_score_word}</span>
+                        </div>
+                        <div className="price">
+                          <span>{`From ${item.composite_price_breakdown.net_amount.amount_rounded
+                          } per night`}</span>
                         </div>
                       </div>
                       <div className="detailbtn">
