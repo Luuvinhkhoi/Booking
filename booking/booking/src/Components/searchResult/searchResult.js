@@ -3,13 +3,12 @@ import { CiLocationOn } from "react-icons/ci";
 import { TbChecklist } from "react-icons/tb";
 import './searchResult.css'
 import {useSelector, useDispatch} from 'react-redux'
-import { hotel, getDetail} from "../../store/hotelSlice";
+import { hotel, getDetail, getPhotos, getDescriptions} from "../../store/hotelSlice";
 import { Link, useLocation } from "react-router-dom";
 export const SearchResult = () =>{
   const results=useSelector(hotel)
   const dispatch=useDispatch()
   const location = useLocation();
-  const [name, setName]=useState()
   const searchParams = new URLSearchParams(location.search);
   const checkin = searchParams.get('checkin');
   const checkout = searchParams.get('checkout');
@@ -20,8 +19,9 @@ export const SearchResult = () =>{
     )
   }
   function handleClick(id){
-    setName(name)
     dispatch(getDetail({arg1: id, arg2: checkin, arg3: checkout}))
+    dispatch(getPhotos({arg1:id}))
+    dispatch(getDescriptions({arg1:id}))
   }
   return (
     <div className="Main">
@@ -29,8 +29,8 @@ export const SearchResult = () =>{
                 {results.result.map(item=>
                 <Link
                   to={`/${item.hotel_id}`}
-                  onClick={()=>handleClick(item.hotel_id, item.hotel_name)}
-                  state={{name}}
+                  onClick={()=>handleClick(item.hotel_id)}
+                  state={{data: item.hotel_name}}
                 >
                   <div className="single-destination" key={item.hotel_id}  >
                     <div>

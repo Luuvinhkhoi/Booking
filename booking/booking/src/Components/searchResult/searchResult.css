@@ -40,7 +40,7 @@ img{
     padding: 1rem 0;
     font-size: 13.5px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .detailbtn{
     border-radius: 5px ;

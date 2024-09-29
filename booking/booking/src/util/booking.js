@@ -43,11 +43,11 @@ let Booking = {
     })
   },
   async getDetails(id, checkin_date, checkout_date){
-    return await fetch(`https://booking-com15.p.rapidapi.com/api/v1/hotels/getHotelDetails?hotel_id=${id}&arrival_date=${checkin_date}&departure_date=${checkout_date}&languagecode=en-us&currency_code=VND`,{
+    return await fetch(`https://booking-com.p.rapidapi.com/v2/hotels/details?locale=en-gb&checkin_date=${checkin_date}&hotel_id=${id}&currency=VND&checkout_date=${checkout_date}`,{
       method:'GET', 
       headers:{
           'x-rapidapi-key': `${APIkey}`,
-          'x-rapidapi-host': 'booking-com15.p.rapidapi.com'
+          'x-rapidapi-host': 'booking-com.p.rapidapi.com'
       }
     }).then(response=>{
       if (response.ok){
@@ -61,6 +61,46 @@ let Booking = {
       console.log(jsonResponse)
       return jsonResponse
     })
-  }
+  },
+  async getPhotos(id){
+    return fetch(`https://booking-com.p.rapidapi.com/v1/hotels/photos?hotel_id=${id}&locale=en-gb`,{
+      method:'GET', 
+      headers:{
+          'x-rapidapi-key': `${APIkey}`,
+          'x-rapidapi-host': 'booking-com.p.rapidapi.com'
+      }
+    }).then(response=>{
+      if (response.ok){
+        console.log('hi')
+        return response.json()
+      }
+    }).then(jsonResponse=>{
+      if(!jsonResponse){
+        console.error('Reponse error')
+      }
+      console.log(jsonResponse)
+      return jsonResponse
+    })
+  },
+  async getDescriptions(id){
+    return fetch(`https://booking-com.p.rapidapi.com/v1/hotels/description?hotel_id=${id}&locale=en-gb`,{
+      method:'GET', 
+      headers:{
+          'x-rapidapi-key': `${APIkey}`,
+          'x-rapidapi-host': 'booking-com.p.rapidapi.com'
+      }
+    }).then(response=>{
+      if (response.ok){
+        console.log('hi')
+        return response.json()
+      }
+    }).then(jsonResponse=>{
+      if(!jsonResponse){
+        console.error('Reponse error')
+      }
+      console.log(jsonResponse)
+      return jsonResponse
+    })
+  },
 }
 export default Booking
